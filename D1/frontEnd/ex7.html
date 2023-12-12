@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add(){
+            var n1 = Number(document.form1.x.value);
+            var n2 = Number(document.form1.y.value);
+            document.form1.sum.value=n1 + n2;
+        }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        X:<input type="text" name = "x"><br>
+        Y:<input type="text" name = "y"><br>
+        <input type="button" value="計算" onclick="add()">
+        X+Y = <input type = "text" name = "sum">
+    </form>
+</body>
+</html>

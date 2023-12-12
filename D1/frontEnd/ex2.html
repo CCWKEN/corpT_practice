@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var param = new Array();
+        param[0] = 10;
+        param[1] = "abc";
+        document.write(param+"<br>");
+        document.write(param[0]+"<br>");
+        document.write(param[1]+"<br>");
+        
+        var param2 = new Array(5);
+        param2[6] = 10;
+        document.write(param2+"<br>");
+        document.write(param2[0]+"<br>");
+        document.write(param2[6]+"<br>");
+
+        //不同的array宣告方式
+        var param3 = new Array(10,20,30);
+        var param4 = [10,25,"abc"];
+
+        //for loop
+        for(var i = 0; i<param3.length; i++){
+            document.write(param3[i]+"<br>");
+        }
+
+        //foreach
+        for(var i in param4){
+            document.write(param4[i]+"<br>");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ob = new Object();
+        ob.name = "student";
+        ob.address = "Taipei";
+
+        console.log(ob);
+        console.log(ob.name);
+
+        var ob2 ={
+            name:"student2",
+            address:"台中"
+        }
+
+        console.log(ob2);
+        console.log(ob2.address);
+
+        var obToArray = new Array();
+        obToArray[0] = ob;
+        obToArray[1] = ob2;
+        obToArray[2] = new Object();
+        obToArray[2].name = "student3";
+        obToArray[2].address = "Tainan";
+
+        for(var i = 0; i<obToArray.length; i++){
+            document.write("名: "+obToArray[i].name+" ,地址:"+obToArray[i].address+"<br>");
+        }
+        
+        document.write("<br>");
+        for(var i in obToArray){
+            document.write("名: "+obToArray[i].name+" ,地址:"+obToArray[i].address+"<br>");
+        }
+        
+    </script>
+</body>
+</html>

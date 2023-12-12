@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("hello, this is console message");
+        document.write("hello, this is page message.");
+        window.alert("Hello, this is window alert message.");
+
+        function calu(a,b){
+            return a+b;
+        }
+
+        function calu2(a,b){
+            document.write("A = "+a+", B= "+b + "<br>");
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var x = 10;
+        var x2 = "10";
+        var x3 = 10;
+        var x4 = true;
+        document.write("<br>"+x+x2+"<br>");
+        document.write(x+x3+"<br>");
+        document.write(typeof(x4)+"<br>");
+        document.write(calu(10,20));
+
+        calu2(10,20);
+        
+
+        for(var i = 1; i <= 10; i++){
+            document.write("i = " + i + " , Hello<br>");
+        }
+        
+        var param = 65;
+        document.write(param >= 60 ? "及格" : "不及格");
+    </script>
+</body>
+</html>
