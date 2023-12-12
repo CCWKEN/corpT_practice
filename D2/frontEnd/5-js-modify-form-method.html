@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制表單 - 修改表單的提交方式
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <form name = "formMethod" method="" action="#">
+        <p>請選擇表單提交方法：
+            <select name="selMethod">
+                <option value="">請選擇...</option>
+                <option value="get">get方式</option>
+                <option value="post">post方式</option>
+            </select>
+        </p>
+        <input type="button" value="修改提交方法" onclick="modifyMethod()">
+    </form>
+</body>
+<script type="text/javaScript">
+    function modifyMethod(){
+        var fMethod = document.formMethod;          //獲取表單DOM
+        var selMethod = fMethod.selMethod.value;    //選擇的方法
+        fMethod.method = selMethod;
+        console.log("表單當前選擇的提交方法: "+ fMethod.method);
+    }
+</script>
+</html>

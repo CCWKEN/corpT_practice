@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav> JavaScript 控制表單 - 通過name和id獲取資料</nav>
+    </header>
+    <!--添加文檔主題內容-->
+    <form name="formTraverse" method ="get">
+        <p>First Name:<input type="text" name="fname" id="id-fname"></p>
+        <p>First Name: <input type="text" name ="fname" id="id_fname2"></p>
+        <p>First Name: <input type="text" name ="fname" id="id_fname3"></p>
+        <p>First Name: <input type="text" name ="fname" id="id_fname4"></p>
+        <p>First Name: <input type="text" name ="fname" id="id_fname5"></p>
+        <p>Last Name:<input type="text" name="lname" id="id-lname"></p>
+        <input type="button" id="id-get-name" onclick="on_get_name()">
+    </form>
+</body>
+
+<script type="text/javascript">
+    function on_get_name() {
+        var get_fname = document.getElementByName("fname");
+        var id_lname = document.getElementById("id-lname");
+        console.log("First Name : "+ get_fname[3].value);
+        console.log("Last Name : "+ id_lname.value);
+    }
+</script>
+</html>

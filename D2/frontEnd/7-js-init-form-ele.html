@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制表單 - 初始化表單裡的值
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <form>
+        <p>First Name: <input type="text" name="fname" id="id_fname"></p>
+        <p>Last Name: <input type='text' name='lname' id='id_lname'></p>
+        <p>請選擇性別:
+            <select name="selGender">
+                <option value="">請選擇l...</option>
+                <option value="get">男生</option>
+                <option value="post">女生</option>
+            </select>
+        </p>
+        <p>Birth:<input type='text' name='birth' id='id_birth'></p>
+        <p>Email:<input type="text" name="email" id="id_email"></p>
+        <p>Hobby:<br>
+            <input type="checkbox" name="hobby" value="sport"/>Sport<br>
+            <input type="checkbox" name="hobby" value="read"/>Read<br>
+            <input type="checkbox" name="hobby" value="tour"/>Tour<br>
+            <input type="checkbox" name="hobby" value="music"/>Music<br>
+            <input type="checkbox" name="hobby" value="movie"/>Movie<br>
+            <input type="checkbox" name="hobby" value="dance"/>Dance<br>
+        </p>
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+<script type="text/javaScript">
+    //text 一個ById 一個ByName 都可以設定或取值
+    document.getElementById("id_fname").value = "King";
+    document.getElementsByName("lname")[0].value = "Wang";
+    
+    //select
+    document.getElementsByName("selGender")[0].selectedIndex = 1;
+
+    //創建一個當前日期
+    var now = new Date();
+
+    //格式化日, 如果小於9,前面補0
+    var day = ("0"+now.getDate()).slice(-2);
+
+    //格式化月, 如果小於9,前面補0
+    var month = ("0"+(now.getMonth() +1)).slice(-2);
+
+    //完整日期格式
+    var today = now.getFullYear()+"-"+(month)+"-"+(day);
+    document.getElementById("id_birth").value = today;
+
+    //email
+    document.getElementById("id_email").value = "king@email.com";
+
+    //checkbox
+    var checkHobby = document.getElementsByName("hobby");
+    for(var i in checkHobby){
+        checkHobby[i].checked = true;
+    }
+
+
+
+</script>
+
+</html>

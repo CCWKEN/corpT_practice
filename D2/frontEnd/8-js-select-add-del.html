@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制表單 - 動態添加、刪除下拉選單
+        </nav>
+    </header>
+    <!--添加文檔主題內容-->
+    <form name="formSelectAddRemove" method="get">
+        <table> 
+            <caption></caption>
+            <tr>
+                <th rowspan="1" colspan="1"></th>
+                <td rowspan="1" colspan="3">
+                    <fieldset>
+                        <legend>添加選項</legend>
+                        <table>
+                            <tr>
+                                <th rowspan="1" colspan="1">Value</th>
+                                <td rowspan="1" colspan="1">
+                                    <input type="text" class="input-sel" name="optValue" id="id-optValue"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th rowspan="1" colspan="1">Text:</th>
+                                <td rowspan="1" colspan="1">
+                                    <input type="text" class="input-sel" name="optText" id="id-optText">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td rowspan="1" colspan="1">
+                                    <input type="button" id="id-input-add-opt" value="添加選項" onclick="on_add_opt_click(this.id);"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="1" colspan="1">Hobby:</th>
+                <td rowspan="1" colspan="1">
+                    <select name="selHobby" id="id-selHobby">
+                        <option value="">請選擇...</option>
+                        <option value="sport" selected="selected">Sport</option>
+                        <option value="reading">Reading</option>
+                        <option value="tour">Tour</option>
+                    </select>
+                </td>
+                <th></th>
+                <td rowspan="1" colspan="1">
+                    <input type="button" id="id-input-remove-opt" value="刪除選項" onclick="on_remove_opt_click(this.id);"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script type="text/javascript">
+    /**
+     * remove option
+     * @param thisid
+     */
+    function on_remove_opt_click(thisid){
+        var selHobby = document.getElementById("id-selHobby");
+        selHobby.remove(selHobby.selectedIndex);
+    }
+
+
+    /**
+     * add option
+     * @param thisid
+     */
+    function on_add_opt_click(thisid){
+        var selHobby = document.getElementById("id-selHobby");
+        var option = document.createElement("option");
+        option.value = document.getElementById("id-optValue").value;
+        option.text = document.getElementById("id-optText").value;
+        selHobby.add(option, null);
+    }
+    
+    
+</script>
+</html>

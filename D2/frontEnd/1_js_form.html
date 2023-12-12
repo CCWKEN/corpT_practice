@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>JavaScript 控制表單 - 遍歷表單</nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <form name = "formTraverse" method="get">
+        <p>First Name: <input type = "text" name = "fname"></p>
+        <p>Last Name: <input type = "text" name = "lname"></p>
+        <input type = "submit" value = "送出">
+    </form>
+</body>
+<script type = "text/javascript">
+    var i;
+    var els = formTraverse.elements;
+    for(i in els){
+        var el = els[i];
+        if(el.type){
+            console.log("element type : " + el.type + ", element name : " + el.name);
+        }
+    }
+</script>
+</html>
