@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 動態替換段落的文本內容
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <div id="id-div" class="css-p">
+        <p>文本段落的原始內容.</p>
+        <p>文本段落的原始內容.</p>
+        <p>文本段落的原始內容.</p>
+    </div>
+    <br>
+    <input type="button" id="id-replace-p" onclick="on_replace_p()" value="動態替換文本內容" />
+</body>
+
+<script type="text/javaScript">
+    function on_replace_p() {
+        var id_p = document.getElementsByTagName('p');
+        for(var i = 0; i<id_p.length ; i++){
+            id_p[i].innerText = "<h1>文本段落動態替換的內容</h1>";
+        }
+        id_p[1].innerHTML = "<h1>文本段落動態替換的內容</h1>";
+    }
+</script>
+
+
+</html>

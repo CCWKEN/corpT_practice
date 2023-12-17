@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 獲取下拉列表的選項(selectIndex)
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <p>Lang: 
+        <select id="id-select-lang">
+            <option>TW</option>
+            <option>EN</option>
+            <option>FR</option>
+            <option>GE</option>
+            <option>RU</option>
+            <option>HK</option>
+        </select>
+    </p>
+    <input type="button" id="id-get-selIndex" onclick="on_get_selIndex()" value="獲取下拉列表選項索引" />
+
+</body>
+
+<script type="text/javaScript">
+    function on_get_selIndex() {
+        var i = document.getElementById('id-select-lang').selectedIndex;
+        var o = document.getElementById('id-select-lang').options[i];
+        console.log("select index : " + i + "," + " select text: " + o.text);
+    }
+</script>
+</html>

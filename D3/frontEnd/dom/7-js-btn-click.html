@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 主動/被動觸發按鈕單擊事件
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <p>First Name: <input type="text" name="fname" id="id-fname" value="CHANWEI" /></p>
+    <p>Last Name: <input type="text" name="lname" id="id-lname" value="CHANG" /></p>
+    <input type="button" id="id-btn-name" value="用戶觸發按鈕" />
+    <input type="button" id="id-btn-click" value="主動觸發按鈕" />
+</body>
+
+<script type="text/javaScript">
+    var v_btn_name = document.getElementById('id-btn-name');
+    v_btn_name.onclick = function() {
+        var id_fname = document.getElementById('id-fname');
+        var id_lname = document.getElementById('id-lname');
+        var full_name = id_fname.value + " " + id_lname.value;
+        console.log("Full Name : " + full_name);
+    }
+
+    var v_btn_click = document.getElementById('id-btn-click');
+    v_btn_click.onclick = function() {
+        console.log("主動觸發按鈕: ");
+        document.getElementById("id-btn-name").click();
+    }
+
+</script>
+</html>

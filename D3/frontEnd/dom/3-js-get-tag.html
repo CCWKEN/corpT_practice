@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 通過標籤名獲取網頁中的多個文本
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <p>First Name: <input type="text" name="fname" id="id-fname" /></p>
+    <p>Last Name: <input type="text" name="lname" id="id-lname" /></p>
+    <input type = "button" id="id-get-text" onclick="on_get_tag_text()" value="獲取text文本" />
+    <input type="button" id="id-get-btn" onclick="on_get_tag_button()" value="獲取button文本" />
+</body>
+<script type="text/javaScript">
+    function on_get_tag_text() {
+        var inputs = document.getElementsByTagName("input");
+        console.log("input[type=text] --- ");
+        for(var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "text") {
+                console.log("value : " + inputs[i].value);
+            }
+        }
+    }
+
+
+    function on_get_tag_button() {
+        var inputs = document.getElementsByTagName("input");
+        console.log("input[type = button]");
+        for(var i = 0; i< inputs.length; i++) {
+            if(inputs[i].type == "button") {
+                console.log("value : " + inputs[i].value);
+            }
+        }
+    }
+</script>
+</html>

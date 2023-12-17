@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/ch06-js-browser.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<style type="text/css">
+    body p {
+        text-align: center;
+    }
+
+    #id-img-scale {
+        margin: 32px;
+        transform: scale(1, 1);
+    }
+</style>
+
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 圖片特效 - 圖片比例縮放
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <p>
+        <img src="images/js.jpg" id="id-img-scale"/><br>
+        <input type="button" value="縮小" onclick="toScale(-1)" />
+        <input type="button" value="放大" onclick="toScale(1)" />
+    </p>
+</body>
+
+<script type="text/javaScript" >
+    var x = 1;
+    var y = 1;
+    function toScale(r) {
+        var img = document.getElementById('id-img-scale');
+        if(r>0){
+            x += 0.1;
+            y += 0.1;
+        } else {
+            x -= 0.1;
+            y -= 0.1;
+        }
+        var browser = getBrowser();
+        if(browser = "FF") {
+            img.style.transform = 'scale(' + x + "," + y + ')';
+        } else {
+            img.style.transform = 'scale(' + x + ',' + y + ')';
+        }
+    }
+</script>
+</html>

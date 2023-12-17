@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 動態刪除網頁文本段落
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <div id="id-div1" class="css-p">
+        <p>動態創建的文本段落1.</p>
+        <p>動態創建的文本段落2.</p>
+        <p>動態創建的文本段落3.</p>
+    </div>
+    <br>
+    <div id="id-div2" class="css-p">
+        <p>已經存在的文本段落.</p>
+        <p>動態追加(appendChild)的文本段落.</p>
+        <p>動態追加(appendChild)的文本段落.</p>
+        <p>動態追加(appendChild)的文本段落.</p>
+    </div>
+    <br>
+    <div id="id-div3" class="css-p">
+        <p>第一段文本段落.</p>
+        <p>動態插入(insertAfter)的文本段落.</p>
+        <p>第三段文本段落.</p>
+    </div>
+    <br>
+    <input type="button" id="id-removeChild-p" onclick="on_removeChild_p()" value="動態刪除文本段落" />
+    <input type="button" id="id-removeChild-all-p" onclick="on_remove_p()" value="動態刪除(remove)文本段落" />
+    <input type="button" id="id-removeChild-insert-p" onclick="on_removeChild_all_p()" value="動態刪除全部文本段落" />
+</body>
+
+<script type="text/javaScript">
+    function on_removeChild_p() {
+        var id_div1 = document.getElementById('id-div1');
+        var child_p = id_div1.childNodes;
+        id_div1.removeChild(child_p[0]);
+    }
+
+    function on_remove_p() {
+        var id_div2 = document.getElementById('id-div2');
+        var child_p = id_div2.childNodes;
+        id_div2.removeChild(child_p[1]);
+    }
+
+
+    function on_removeChild_all_p() {
+        var id_div3 = document.getElementById('id-div3');
+        var child_p = id_div3.childNodes;
+        for(var i = child_p.length -1; i>=0; i--){
+            id_div3.removeChild(child_p[i]);
+        }
+    }
+</script>
+</html>

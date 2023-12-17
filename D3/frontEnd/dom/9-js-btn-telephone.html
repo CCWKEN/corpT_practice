@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 電話撥話鍵盤
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <div class="css-div-button">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button><br>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button><br>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button><br>
+        <button>*</button>
+        <button>0</button>
+        <button>#</button><br>
+        <input type="text" id="id-input-tel" readonly />
+    </div>
+</body>
+
+<script type="text/javaScript">
+    window.onload = function() {
+        var arrTel = ['1','2','3','4','5','6','7','8','9','*','0','#']
+        var arrBtn = document.getElementsByTagName('button');
+        var tel = document.getElementById('id-input-tel');
+        for(var i = 0; i<arrBtn.length; i++){
+            arrBtn[i].index = i;
+            arrBtn[i].onclick = function() {
+                tel.value += arrTel[this.index];
+            }
+        }
+    }
+</script>
+</html>

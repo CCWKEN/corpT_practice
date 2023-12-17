@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+
+    div#id-div-center {
+        width: 320px;
+        height: auto;
+        border: 0px solid black;
+        margin: 16px auto;
+        padding: 2px;
+    }
+</style>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 圖片特效 - 重新加載驗證碼圖片
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <div id="id-div-center">
+        <input type="button" value="重新加載驗證碼圖片" onclick="reloadVerityCode(this.id)" /><br>
+        <img src="images/verifycode.01.jpg" alt="圖片未加載" id="id-img"
+            lazy_src_1="images/verifycode.01.jpg"
+            lazy_src_2="images/verifycode.02.jpg"
+            lazy_src_3="images/verifycode.03.jpg"
+        />
+    </div>
+</body>
+
+<script type="text/javaScript">
+    var index=1;
+    /**
+     * reload verify code image
+     * @param thisid
+    */
+    function reloadVerityCode(thisid) {
+        var img = document.getElementById("id-img");
+        index++;
+        if(index > 3) {
+            index = 1;
+        }
+        img.src = img.attributes['lazy_src_' + index.toString()].value;
+    }
+</script>
+</html>

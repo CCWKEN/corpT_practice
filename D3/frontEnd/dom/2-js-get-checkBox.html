@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" text="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 通過name獲取網頁中的複選框
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <p>Hobby: <br>
+        <input type="checkbox" name="hobby" value="sport" checked />Sport
+        <input type="checkbox" name="hobby" value="reading" />Reading
+        <input type="checkbox" name="hobby" value="tour" />Tour
+        <input type="checkbox" name="hobby" value="music" />Music
+        <input type="checkbox" name="hobby" value="movie" />Movie
+        <input type="checkbox" name="hobby" value="dance" />Dance
+    </p>
+    <p>
+        <input type="button" id="id-get-checkbox" onclick="on_get_checkbox()" value="獲取全部" />
+        <input type="button" id="id-get-checkbox-checked" onclick="on_get_checkbox_checked()" value="獲取全部選中選項" />
+        <input type="button" id="id-get-checkbox-unchecked" onclick="on_get_checkbox_unchecked()" value="獲取全部未選選項" />
+    </p>
+</body>
+<script type="text/javaScript">
+    function on_get_checkbox() {
+        var cb = document.getElementsByName('hobby');
+        console.log("Checkbox --- ");
+        cb.forEach(function(item){
+            console.log("value : " + item.value + ", text : " + item.nextSibling.nodeValue.trim());
+        });
+    }
+
+
+    function on_get_checkbox_checked() {
+        var cb = document.getElementsByName('hobby');
+        console.log("Checked Checkbox --- ");
+        cb.forEach(function(item) {
+            if (item.checked){
+                console.log("value : " + item.value + ", text : " + item.nextSibling.nodeValue.trim());
+            }
+        });
+    }
+
+
+    function on_get_checkbox_unchecked() {
+        var cb = document.getElementsByName("hobby");
+        console.log("Unchecked Checkbox --- ");
+        cb.forEach(function(item) {
+            if(!item.checked) {
+                console.log("value : " + item.value + ", text : " + item.nextSibling.nodeValue.trim());
+            }
+        });
+    }
+</script>
+</html>

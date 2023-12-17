@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+
+    div#id-div-center {
+        width: 320px;
+        height: auto;
+        border: 0px solid black;
+        margin: 16px auto;
+        padding: 2px;
+    }
+</style>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 圖片特效 - 動態加載圖片
+        </nav>
+    </header>
+    <hr>
+    <div id="id-div-center">
+        <input type="button" value="動態加載圖片" onclick="dynLoadImg(this.id)" />
+        <br><br><br>
+        <img lazy_src="images/js-dyn-load.jpg" src="" alt="圖片未加載" id="id-img" />
+    </div>
+</body>
+
+<script type="text/javaScript">
+    /**
+     * dynamic load image
+     * @param thisid
+    */
+    function dynLoadImg(thisid) {
+        var img = document.getElementById('id-img');
+        img.src = img.attributes['lazy_src'].value;
+    }
+</script>
+</html>

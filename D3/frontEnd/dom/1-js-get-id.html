@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>JavaScript 控制DOM - 通過id獲取網頁中的元素對象</nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <p>First Name: <input type="text" name="fname" id="id-fname"></p>
+    <p>Last Name: <input type="text" name="lname" id="id-lname"></p>
+    <input type="button" id="id-get-id" onclick="on_get_id()" value="通過id獲取" />
+    <br><br><br>
+    <div>
+        <span id="id-span-1">Full Name :&nbsp;&nbsp;</span><br>
+        <span id="id-span-2">Full Name :&nbsp;&nbsp;</span><br>
+        <span id="id-span-3">Full Name :&nbsp;&nbsp;</span><br>
+    </div>
+</body>
+
+<script type="text/javaScript">
+    function on_get_id() {
+        var id_fname = document.getElementById('id-fname');
+        var id_lname = document.getElementById('id-lname');
+        var full_name = id_fname.value + " " + id_lname.value;
+
+        for(var i = 1; i <= 3; i++) {
+            document.getElementById("id-span-" + i).innerText += full_name;
+        }
+    }
+</script>
+</html>

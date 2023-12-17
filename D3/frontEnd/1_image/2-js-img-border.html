@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+    div #id-div-border {
+        width: 128px;
+        height: 128px;
+        border: 0px solid black;
+        margin: 32px auto;
+        padding: 8px;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            JavaScript 圖片特效 - 為圖片加上邊框
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <div id="id-div-border">
+        邊框顏色:  
+        <select id="id-sel-color" onchange="on_sel_color_changed(this.id)">
+            <option value="none" selected>None</option>
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+        </select><br><br>
+        邊框厚度:  
+        <select id="id-sel-width" onchange="on_sel_width_changed(this.id)">
+            <option value="0" selected>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br><br>
+        <img src="images/js-border.jpg" id="id-img"/>
+    </div>
+</body>
+
+<script type="text/javaScript">
+    /**
+     * select image border color
+     * @param thisid
+    */
+   function on_sel_color_changed(thisid) {
+    var selColor = document.getElementById(thisid);
+    var color = selColor.value;
+    var selWidth = document.getElementById("id-sel-width");
+    var width = selWidth.value;
+    setImageBorder(width, color);
+   }
+
+   /**
+    * select image border width
+    * @param thisid
+   */
+  function on_sel_width_changed(thisid) {
+    var selWidth = document.getElementById(thisid);
+    var width = selWidth.value;
+    var selColor = document.getElementById("id-sel-color");
+    var color = selColor.value;
+    setImageBorder(width, color);
+  }
+
+  /**
+   * set image border style
+   * @param width
+   * @param color
+  */
+ function setImageBorder(width, color) {
+    var img = document.getElementById('id-img');
+    if(width == 0 || color == "none") {
+        img.style.border = "";
+    } else {
+        img.style.border = width + "px solid " + color;
+    }
+ }
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!--添加文檔主題內容-->
+    <header>
+        <nav>
+            JavaScript 控制DOM - 動態創建網頁新文本段落
+        </nav>
+    </header>
+    <hr>
+    <!--添加文檔主題內容-->
+    <div id="id-div1" class="css-p"></div>
+    <br>
+    <div id="id-div2" class="css-p">
+        <p>已經存在的文本段落.</p>
+    </div>
+    <br>
+    <div id="id-div3" class="css-p">
+        <p>第一段文本段落.</p>
+        <p>第三段文本段落.</p>
+    </div>
+    <br>
+    <input type="button" id="id-createEle-p-new" onclick="on_createEle_p_new()" value="創建動態文本段落" />
+    <input type="button" id="id-createEle-p-append" onclick="on_createEle_p_append()" value="動態追加文本段落" />
+    <input type="button" id="id-createEle-p-insert" onclick="on_createEle_p_insert()" value="動態插入文本段落" />
+</body>
+
+<script type="text/javaScript">
+    function on_createEle_p_new() {
+        var id_div1 = document.getElementById("id-div1");
+        var p1 = document.createElement("p");
+        p1.innerText = "這是動態創建的文本段落.";
+        id_div1.appendChild(p1);
+    }
+
+    /**
+     * create p append after p
+    */
+    function on_createEle_p_append() {
+        var id_div2 = document.getElementById("id-div2");
+        var p2_2 = document.createElement("p");
+        p2_2.innerText = "動態追加(appendChild)的文本段落.";
+        id_div2.appendChild(p2_2);
+    }
+
+
+    /**
+     * create p insert into p&p
+    */
+   function on_createEle_p_insert() {
+    var id_div3 = document.getElementById('id-div3');
+    var child_p = id_div3.children;
+    var p3_1 = child_p[0];
+    var p3_3 = child_p[1];
+    var p3_2 = document.createElement("p");
+    p3_2.innerText = "動態插入(insertAfter)的文本段落.";
+    id_div3.insertBefore(p3_2, p3_3);
+   }
+</script>
+
+
+</html>
