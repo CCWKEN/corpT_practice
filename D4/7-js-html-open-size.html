@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 實例</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+
+    div#id-div-center {
+        position: relative;
+        width: 320px;
+        height: auto;
+        border: 0px solid black;
+        margin: 32px auto;
+        padding: 2px;
+        font: normal 14px/1.2em "Microsoft Yahei", arial, sans-serif;
+    }
+
+    div#id-div-center input[type="text"] {
+        width: 64px;
+    }
+</style>
+
+<body>
+    <!--添加主體內容-->
+    <header>
+        <nav>JavaScript 網頁特效 - 打開指定大小的窗口</nav>
+    </header>
+    <hr>
+    <!--添加主體內容-->
+    <div id="id-div-center">
+        指定新視窗大小：&nbsp;&nbsp;<br><br>
+        Width:&nbsp;&nbsp;<input type="text" id="id-window-width" value="">&nbsp;&nbsp;
+        Height:&nbsp;&nbsp;<input type="text" id="id-window-height" value=""><br><br>
+        <input type="button" value="打開指定大小的視窗" onclick="openNewHtml('open.html')"><br><br>
+    </div>
+</body>
+
+<script type="text/javaScript">
+    function openNewHtml(url) {
+        var w, h;
+        w = document.getElementById('id-window-width').value;
+        if(w == 0){
+            w = 100;
+        }
+        h = document.getElementById('id-window-height').value;
+        if(h == 0){
+            h = 100;
+        }
+        window.open(url, '', 'width=' + w + ',height=' + h);
+    }
+</script>
+
+</html>

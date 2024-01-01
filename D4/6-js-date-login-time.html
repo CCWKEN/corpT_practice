@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 實例</title>
+</head>
+
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+
+    div#id-div-center {
+        position: relative;
+        width: 320px;
+        height: auto;
+        border: 0px solid black;
+        margin: 32px auto;
+        padding: 2px;
+        font: normal 14px/1.2em arial, sans-serif;
+    }
+</style>
+
+<body>
+    <!--添加主體內容-->
+    <header>
+        <nav>JavaScript 日期和時間特效 - 顯示網頁登入時間</nav>
+    </header>
+    <hr>
+    <!--添加主體內容-->
+    <div id="id-div-cneter">
+        <span id="id-span-login-time"></span>
+    </div>
+</body>
+
+<script type="text/javaScript">
+    var s = 0;
+    var m = 0;
+    var h = 0;
+
+    window.onload = function() {
+        window.setInterval(function(){
+            s++;
+            if(s == 60){
+                s = 0;
+                m += 1;
+            }
+            if(m == 60){
+                m = 0;
+                h += 1;
+            }
+            var strLoginTime = "您已登入,累計時間: " + h + '時' + m + '分' + s + '秒.';
+            document.getElementById('id-span-login-time').innerText = strLoginTime;
+        }, 1000);
+    }
+</script>
+
+</html>

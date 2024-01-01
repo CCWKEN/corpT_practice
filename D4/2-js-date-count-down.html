@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 實例</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+    div#id-div-center {
+        position: relative;
+        width: auto;
+        height: auto;
+        border: 0px solid black;
+        margin: 32px auto;
+        padding: 2px;
+        font: normal 14px/1.2em "Microsoft Yahei", arial, sans-serif;
+    }
+    input#id-input-init-time {
+        width: 32px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <!-- 添加主體內容 -->
+    <header>
+        <nav>JavaScript 日期和時間特效 - 倒數計時器</nav>
+    </header>
+    <hr>
+    <!-- 添加主體內容 -->
+    <div id="id-div-center">
+        時間倒數計時: &nbsp;&nbsp;
+        <span id="id-span-count-down"></span><br><br>
+        起始時間: &nbsp;&nbsp;<input type="text" id="id-input-init-time" value="1">分鐘&nbsp;&nbsp;
+        <button id="id-btn-count-down" onclick="count_down(this.id)">開始倒數計時</button><br>
+    </div>
+</body>
+
+
+<script type="text/javaScript">
+    var iHours = 0;
+    var iMinutes = 0;
+    var iSeconds = 0;
+    var strHours = "00";
+    var strMinutes = "00";
+    var strSeconds = "00";
+    var strTimer;
+
+    window.onload = function(event) {
+        init_time();
+        strTimer = strHours + ":" + strMinutes + ":" + strSeconds;
+        document.getElementById('id-span-count-down').innerHTML = strTimer;
+    }
+
+    function init_time() {
+        iMinutes = document.getElementById('id-input-init-time').value;
+        strMinutes = iMinutes.toString();
+        if(strMinutes.length == 1){
+            strMinutes = "0" + strMinutes;
+        }
+    }
+
+    function count_down(thisid) {
+        init_time();
+        window.setInterval(function () {
+            if(iSeconds == 0){
+                if(iMinutes > 0){
+                    iMinutes--;
+                    strMinutes = iMinutes.toString();
+                    if(strMinutes.length == 1){
+                        strMinutes = "0" + strMinutes;
+                    }
+                    iSeconds = 60;
+                    iSeconds--;
+                    strSeconds = iSeconds.toString();
+                    if(iSeconds.length == 1){
+                        strSeconds = "0" + strSeconds;
+                    }
+                }else if(iMinutes == 0) {
+                    strMinutes = "00";
+                }
+            }else if( iSeconds > 0){
+                iSeconds--;
+                strSeconds = iSeconds.toString();
+                if(strSeconds.length == 1){
+                    strSeconds = "0" + strSeconds;
+                }
+            } 
+            strTimer = strHours + ":" + strMinutes + ":" + strSeconds;
+            document.getElementById('id-span-count-down').innerHTML = strTimer;
+        }, 1000);
+    }
+</script>
+
+</html>

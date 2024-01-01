@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 實例</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+
+    div#id-div-center {
+        position: relative;
+        width: 380px;
+        height: auto;
+        border: 0px solid black;
+        margin: 32px auto;
+        padding: 2px;
+    }
+
+    div#id-div-date {
+        display: none;
+        border: 1px solid gray;
+        width: 360px;
+        margin: 0 auto;
+        padding: 4px;
+        text-align: center;
+    }
+
+    div#id-div-date table#id-tb-date td {
+        padding: 2px;
+        text-align: center;
+    }
+</style>
+<body>
+    <!-- 添加主體內容 -->
+    <header>
+        <nav>JavaScript 日期和時間特效 - 日期輸入框</nav>
+    </header>
+    <hr>
+    <!-- 添加主體內容 -->
+    <div id="id-div-cneter">
+        <p>
+            日期輸入框：&nbsp;&nbsp;
+            <input type="text" id="id-input-date" onfocus="initDate(this.id)">
+        </p>
+        <div id="id-div-date">
+            <p>
+                <select id="y"></select>年&nbsp;&nbsp;
+                <select id="m" onchange="fillTbCalendar()"></select>月&nbsp;&nbsp;
+            </p>
+            <table id="id-tb-date" border="1" align="center"></table>
+        </div>
+    </div>
+</body>
+
+<script type="text/javaScript">
+    window.onload = function() {
+        document.getElementById('id-input-date').value = "";
+        fillSelCalendar();
+    }
+
+    function fillSelCalendar() {
+        var y = document.getElementById('y');
+        var m = document.getElementById('m');
+        var strY = '';
+        for(let i = 2019; i <= 2024; i++){
+            strY += '<option value="' + i + '">' + i + '</option>';
+        }
+        y.innerHTML = strY;
+        strM = '';
+        for(let j = 1; j <= 12; j++){
+            strM += '<option value-"' + j + '">' + j + '</option>';
+        }
+        m.innerHTML = strM;
+    }
+
+    /**
+     * init date
+     * @param thisid
+     */
+     function initDate(thisid) {
+        document.getElementById(thisid).value = "";
+        var now = new Date();
+        var yyyy = now.getFullYear();
+        var mm = now.getMonth() + 1;
+        var dd = now.getDate();
+        var week = now.getDay();
+        var arrWeek = ['日', '一', '二', '三', '四', '五', '六'];
+        var strWeek = '星期';
+        for (let i = 0; i < 7; i++) {
+            if (i == week) {
+                strWeek += arrWeek[i];
+                break;
+            }
+        }
+        var strInfo = yyyy + '年' + mm + '月' + dd + '日 ' + strWeek;
+        document.getElementById(thisid).value = strInfo;
+        var divDate = document.getElementById('id-div-date');
+        var year = document.getElementById('y');
+        var month = document.getElementById('m');
+        year.value = yyyy;
+        month.value = mm;
+        divDate.style.display = 'block';
+        fillTbCalendar();
+    }
+
+    /**
+     * fill table calendar
+     */
+    function fillTbCalendar(){
+        var year = document.getElementById('y').value;
+        year = parseInt(year);
+        var month = parseInt(document.getElementById('m').value);
+        var days = 31;
+        if (isRunYear(year) && month == 2) {
+            days = 29;
+        } else if (!isRunYear(year) && month == 2) {
+            days = 28;
+        } else if (month == 4
+            || month == 6
+            || month == 9
+            || month == 11) {
+            days = 30;
+        }
+        var arrWeek = ['日', '一', '二', '三', '四', '五', '六'];
+        var strW = '<tr>';
+        for (var w = 0; w < 7; w++) {
+            strW += '<td>星期' + arrWeek[w] + '</td>';
+        }
+        strW += '</tr>';
+
+        var date = new Date(year, month - 1, 1);
+        var week = date.getDay();
+        if (week == 7)
+            week = 0;
+        var j = 1;
+        while (true) {
+            strW += '<tr>';
+            for (var i = 0; i < 7; i++) {
+                if (j == 1 && i == week) {
+                    strW += '<td onclick="showDay(this,' + j + ',' + i + ');">1</td>';
+                    j++;
+                } else if (j > 1 && j <= days) {
+                    strW += '<td onclick="showDay(this,' + j + ',' + i + ');">' + j + '</td>';
+                    j++;
+                } else
+                    strW += '<td>&nbsp;</td>';
+            }
+            strW += '</tr>';
+            if (j > days)
+                break;
+        }
+        document.getElementById('id-tb-date').innerHTML = strW;
+    }
+
+    /**
+     * is Run Year
+     * @param y
+     * @returns {boolean}
+     */
+    function isRunYear(y) {
+        return y % 4 == 0;
+    }
+
+    /**
+     * show day info
+     * @param d
+     */
+    function showDay(el, d, w) {
+        setTbBgColor(el);
+        var y = document.getElementById('y').value;
+        var m = document.getElementById('m').value;
+        var arrW = ['日', '一', '二', '三', '四', '五', '六'];
+        var strW = '星期';
+        for (let i = 0; i < 7; i++) {
+            if (i == w) {
+                strW += arrW[i];
+                break;
+            }
+        }
+        var strInfo = y + '年' + m + '月' + d + '日 ' + strW;
+        document.getElementById('id-input-date').value = strInfo;
+    }
+
+    /**
+     * set table td background-color
+     * @param el
+     */
+    function setTbBgColor(el) {
+        var tds = document.getElementsByTagName("td");
+        for (let i = 0; i < tds.length; i++) {
+            tds[i].style.backgroundColor = "";
+        }
+        el.style.backgroundColor = "gray";
+    }
+</script>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 實例</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head> 
+
+<style type="text/css">
+    body {
+        text-align: center;
+    }
+    
+    div#id-div-center {
+        position: relative;
+        width: auto;
+        height: auto;
+        border: 0px solid black;
+        margin: 32px auto;
+        padding: 2px;
+        font: normal 14px/1.2em "Microsoft Yahei", arial, sans-serif;
+    }
+</style>
+
+<body>
+    <!-- 添加主題內容 -->
+    <header>
+        <nav>每秒刷新的時間展示效果</nav>
+    </header>
+    <hr>
+    <!-- 添加主題內容 -->
+    <div id="id-div-center">
+        每秒刷新的時間展示效果: &nbsp;&nbsp;
+        <span id="id-span-timer"></span><br><br>
+    </div>
+
+
+    <script type="text/javaScript">
+        /**
+         * window onload - set timer
+        */
+
+        window.onload = function() {
+            //TODO: 使用setInterval函數進行定時
+            window.setInterval(function() {
+                //TODO: 取得當前的時間
+                var date = new Date();
+                var str = '';
+                //TODO: 取得時分秒，並且拼接
+                str += date.getHours();
+                str += ":";
+                str += date.getMinutes();
+                str += ":";
+                str += date.getSeconds();
+
+                document.getElementById("id-span-timer").innerHTML = str;
+            }, 1000);
+        }
+    </script>
+
+
+</body>
+</html>
