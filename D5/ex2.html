@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ===========document DOM================<br>
+    <div id="A"></div>
+    <div id="B"></div>
+
+    <button onclick="show1()">執行A</button><br>
+    <button onclick="show2()">執行B</button><br>
+
+    <script type="text/javaScript">
+        var iA = document.getElementById('A');
+        var iB = document.getElementById('B');
+
+        function show1() {
+            // A.innerHTML = "hello a";
+            iA.innerHTML = "<h2>hello A</h2>";
+        }
+
+        function show2() {
+            // B.innerHTML = "hello b";
+            iB.innerHTML="hello b";
+        }
+
+    </script>
+
+</body>
+</html>

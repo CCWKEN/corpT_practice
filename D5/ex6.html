@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    =====================json===============<br>
+    <div id="id-ajax-json"></div>
+    <button onclick="show()">test json</button>
+
+    <script type="text/javaScript">
+        var idjson = document.getElementById('id-ajax-json');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','https://data.moa.gov.tw/Service/OpenData/Agriculturalcoa_videoRss.aspx?IsTransData=1&UnitId=F35', true);
+        xhr.send();
+
+        function show() {
+            idjson.innerHTML = xhr.responseText;
+            var jdata = JSON.parse(xhr.responseText);
+            var show = '';
+
+            for(var i = 0; i < jdata.length; i++){
+                show = show + "title:" + jdata[i].title +
+                    "<br>description: " + jdata[i].description +
+                    "<br>picimg1:<img src=" + jdata[i].picimg1+ ">" +
+                    "<br>link:<a href=" + jdata[i].link + " target=_blank>影片介紹</a><br><hr>";
+            }
+            idjson.innerHTML = show;
+        }
+    </script>
+
+</body>
+</html>

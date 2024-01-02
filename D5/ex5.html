@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ===================json檔==================<br>
+    <div id="id-ajax-json"></div>
+    <button onclick="show()">執行json</button>
+
+    <script type="text/javaScript">
+        var idjson = document.getElementById('id-ajax-json');
+        var xhrjson = new XMLHttpRequest();
+        xhrjson.open('GET','ajaxEx.json',true);
+        xhrjson.send();
+
+        function show() {
+            //idjson.innerHTML = xhrjson.responseText;
+            var jdata = JSON.parse(xhrjson.responseText);
+            var web = jdata.web;
+
+            var show = "";
+
+            for(var i = 0; i < web.length; i++){
+                show = show + "tilte: " + web[i].title + "<br>address: " + web[i].address + "<br>info:" + web[i].info + "<br><hr>";
+            }
+            idjson.innerHTML = show;
+        }
+    </script>
+    
+</body>
+</html>

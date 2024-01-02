@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ====================ajax a.txt=============<br>
+    <div id="id-ajax-txt"></div>
+    <button onclick="show()">執行 txt</button>
+
+    <script type="text/javaScript">
+        /*
+            1-定義：ID
+            2-產生 XMLHttpRequest--物件
+            3-定義 get/post-, 讀取資料, true
+            4-send()
+            5-function:指定 response資料地點
+        */
+
+        var ida = document.getElementById('id-ajax-txt');
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","a.txt",true);
+        xhr.send();
+
+        function show() {
+            ida.innerHTML = xhr.responseText;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿{
+	"web":
+	[
+		{
+			"title":"javaScript",
+			"address":"http://www.jscode.com",
+			"info":"JavaScript Code sample"
+		},
+		{
+			"title":"JQuery",
+			"address":"http://www.jqcode.com",
+			"info":"jQuery Code sample"
+		},
+		{
+
+			"title":"ajax",
+			"address":"http://www.ajaxcode.com",
+			"info":"ajax Code sample"
+		}
+
+
+	]
+
+
+
+}

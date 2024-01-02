@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ====================ajax txt+jsp+XML==============<br>
+    <div id="id-ajax-txt"></div>
+    <div id="id-ajax-jsp"></div>
+    <div id="id-ajax-xml"></div>
+
+    <button onclick="show1()">執行txt</button>
+    <button onclick="show2()">執行jsp</button>
+    <button onclick="show3()">執行xml</button>
+
+    <script type="text/javaScript">
+        var idtxt = document.getElementById('id-ajax-txt');
+        var idjsp = document.getElementById('id-ajax-jsp');
+        var idxml = document.getElementById('id-ajax-xml');
+
+        var xhrtxt = new XMLHttpRequest();
+        var xhrjsp = new XMLHttpRequest();
+        var xhrxml = new XMLHttpRequest();
+
+        xhrtxt.open('GET','a.txt',true);
+        xhrjsp.open('GET','a2.jsp',true);
+        xhrxml.open('GET','a3.xml',true);
+
+        xhrtxt.send();
+        xhrjsp.send();
+        xhrxml.send();
+
+        function show1() {
+            idtxt.innerHTML = xhrtxt.responseText;
+        }
+        function show2() {
+            idjsp.innerHTML = xhrjsp.responseText;
+        }
+        function show3() {
+            idxml.innerHTML = xhrxml.responseText;
+        }
+    </script>
+</body>
+</html>

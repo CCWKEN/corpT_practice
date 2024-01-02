@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="show()">農業氣象</button>
+    <div id="showdata"></div>
+    <script type="text/javaScript">
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","COA_OpenData.csv",true);
+        xhr.send();
+        function show() {
+            var jsonData = xhr.responseText;
+
+            showdata.innerHTML = jsonData;
+        }
+    </script>
+</body>
+</html>
