@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        function show() {
+            alert("Hello jQuery");
+        }
+    </script>
+</head>
+<body>
+    <div id="t1">test 1</div>
+    <button id="t2">test 2</button>
+    <hr>
+
+    <button id="t3">test 3</button>
+    <div id="show1"></div>
+    <hr>
+
+    <button id="t4">test 4</button>
+    <div id="show2"></div>
+
+    <script type="text/javaScript">
+        $('#t1').bind('click',show);
+        $('#t2').bind('click',()=>{
+            alert('test hello');
+        });
+
+        $("#t3").on("click",()=>{
+            $("#show1").html("<h3>hello 巨匠電腦</h3>");
+        });
+       
+        $("#t4").click(()=>{
+            $("#show2").html("<h2>hello jquery</h2>");
+        });
+       
+    </script>
+
+
+</body>
+</html>

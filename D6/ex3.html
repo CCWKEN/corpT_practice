@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.7.1.min.js"></script>
+    <title>jQuery</title>
+</head>
+<style>
+    .abc {
+        background-color: #556677;
+        font-size: 24pt;
+    }
+</style>
+<body>
+    <h1>Hello jquery hTag</h1>
+    <div id="t1">Hello jquery idTag</div>
+    <div class="t2">Hello jquery classTag</div>
+    <div id="t3">Hello jquery idTag2</div>
+
+    <script type="text/javaScript">
+        $('h1').css('background-color','red');
+        
+        $('#t1').css({
+            'background-color': "#dd2277",
+            'font-size':'40pt'
+        });
+        
+        $('.t2').css({
+            'background-color' : "#77aa66",
+            "font-size" : "16pt"
+        });
+
+        $('#t3').addClass('abc');
+    </script>
+
+</body>
+</html>
