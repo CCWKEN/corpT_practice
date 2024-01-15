@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab頁面切換效果</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        width: 400px;
+        margin:15px;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    .main li {
+        text-align: center;
+        float: left;
+        width: 100px;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .main .style1 {
+        width: 100px;
+        color: #fff;
+        font-weight: bold;
+        background-color: blue;
+    }
+
+    .box {
+        width: 400px;
+        height: 200px;
+        background-color: #f3f2e7;
+        border: 1px solid #837979;
+        box-sizing: border-box;
+        padding: 50px;
+    }
+
+    .box li {
+        display: none;
+    }
+
+    p {
+        margin-top: 15px;
+    }
+</style>
+
+<body>
+    <ul class="main">
+        <li class="style1">家用電器</li>
+        <li>辦公設備</li>
+        <li>食品酒類</li>
+        <li>玩具樂器</li>
+    </ul>
+    <ul class="box">
+        <li>
+            <p>電視機</p>
+            <p>空調</p>
+            <p>洗衣機</p>
+            <p>豆漿機</p>
+        </li>
+        <Li>
+            <p>電腦</p>
+            <p>筆記本</p>
+            <p>投影機</p>
+            <p>路由器</p>
+        </Li>
+        <li>
+            <p>牛肉</p>
+            <p>魚類</p>
+            <p>白酒</p>
+            <p>葡萄酒</p>
+        </li>
+        <li>
+            <p>益智玩具</p>
+            <p>拼裝玩具</p>
+            <p>鋼琴</p>
+            <p>電子琴</p>
+        </li>
+    </ul>
+</body>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script type="text/javaScript">
+    $(function (){
+        //頁面加載完成後，頁面默認的效果
+        $(".box li:eq(0)").show();
+        //利用each方法遍歷main中的每個li
+        $(".main li").each(function(index){
+            //為每個li綁定mouseover
+            $(this).mouseover(function(){
+                //addCalss()增加當前樣式，removeClass()移除除了當前點擊之外的其他元素樣式
+                $(this).addClass("main style1").siblings().removeClass("style1");
+                $(".box li:eq("+index+")").show().siblings().hide();
+            })
+        })
+    })
+</script>
+
+</html>

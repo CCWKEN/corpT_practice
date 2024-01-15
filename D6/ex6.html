@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        function cal(x,y) {
+            return x*y;
+        }
+    </script>
+</head>
+<body>
+    <table width="400" align="center" border="1">
+        <tr>
+            <td colspan="2" align="center">輸入基本資料</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>地址</td>
+            <td><input type="text" id="address"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button id="btn1">confirm</button></td>
+        </tr>
+    </table>
+    <hr>
+
+    <div id="show"></div>
+
+    <hr>
+    <table width="400" align="center" border="1">
+        <tr>
+            <td colspan="2" align="center">輸入x,y</td>
+        </tr>
+        <tr>
+            <td>x</td>
+            <td><input type="text" id="x"></td>
+        </tr>
+        <tr>
+            <td>y</td>
+            <td><input type="text" id="y"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button id="btn2">確定</button></td>
+        </tr>
+    </table>
+    <hr>
+
+    <div id="show2"></div>
+
+
+    <script type="text/javaScript">
+        $("#btn1").on("click",()=>{
+            var Name = $("#name").val();
+            var Address = $("#address").val();
+
+            var content = "姓名= " + Name + "<br>地址= " + Address;
+
+            $("#show").html(content);
+        });
+
+        $("#btn2").click(()=>{
+            var X = $("#x").val();
+            var Y = $("#y").val();
+
+            var content = X + "*" + Y + "=" + cal(X,Y);
+
+            $("#show2").html(content);
+        });
+    </script>
+</body>
+</html>

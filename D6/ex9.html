@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #bigbox {
+        overflow: hidden;
+        position: relative;
+        width: 650px;
+        margin-left: 50px;
+        border-bottom: 2px solid black;
+    }
+    .timeLine li {
+        float: left;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin: 0 10px;
+        border-radius: 20%;
+    }
+    .timeLine .now {
+        background-color: red;
+        color: white;
+    }
+    .box {
+        width: 400px;
+        height: 200px;
+        border: 1px solid #000;
+        overflow: hidden;
+        position: relative;
+        left: 180px;
+        top: 30px;
+    }
+    #timeTable {
+        width: 1000%;
+        list-style: none;
+        position: absolute;
+        font-size: 40px;
+        text-align: center;
+        line-height: 200px;
+    }
+    #timeTable li {
+        width: 400px;
+        height: 200px;
+        float: left;
+    }
+    #left, #right {
+        width: 40px;
+        height: 40px;
+        background: blue;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        position: absolute;
+        border-radius: 50%;
+    }
+    #left {
+        left: 60px;
+        top: 150px;
+    }
+    #right {
+        left: 650px;
+        top: 150px;
+    }
+</style>
+
+<body>
+    <h2 align="center">本週商品採購計畫</h2>
+    <div id="left"><</div>
+    <div id="bigbox">
+        <ul class="timeLine">
+            <li class="now">星期一</li>
+            <li>星期二</li>
+            <li>星期三</li>
+            <li>星期四</li>
+            <li>星期五</li>
+        </ul>
+    </div>
+    <div id="right">></div>
+    <div class="box">
+        <ul id="timeTable">
+            <li>採購洗衣機2000台</li>
+            <li>採購電視機5600台</li>
+            <li>採購電冰下3200台</li>
+            <li>採購空調8900台</li>
+            <li>採購電腦1800台</li>
+        </ul>
+    </div>
+
+    <script type="text/javaScript">
+        $(function() {
+            var nowIndex = 0; //定義一個變量，表示li的索引值
+            var liIndex = $("#timeTable li").length;    //獲取timeTable中li的個數
+            //點擊left時，判斷li的索引值
+
+            $("#left").click(function() {
+                if(nowIndex > 0){
+                    nowIndex = nowIndex - 1;
+                } else {
+                    nowIndex = liIndex - 1;
+                }
+                change(nowIndex);
+                change1(nowIndex);
+            })
+            //點擊right時，判斷li的索引值
+            $("#right").click(function() {
+                if(nowIndex < liIndex - 1) {
+                    nowIndex = nowIndex + 1;
+                } else {
+                    nowIndex = 0;
+                }
+                change(nowIndex);
+                change1(nowIndex);
+            })
+
+            //timeLine的移動方法
+            function change(index) {
+                var ulmove = index * 140;
+                $(".timeLing").animate({left:"-"+ulmove+"px"}, 50).find("li").removeClass("now").eq(index).addClass("now");
+            }
+
+            //timeTable的移動方法
+            function change1(index) {
+                var ulmove = index * 400;
+                $("#timeTable").animate({left:"-"+ulmove+"px"}, 100);
+            }
+
+        })
+    </script>
+
+
+</body>
+</html>

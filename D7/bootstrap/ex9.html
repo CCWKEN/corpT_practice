@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>膠囊導航選項</title>
+    <link rel="stylesheet" href="bootstrap-4.1.3/css/bootstrap.css">
+    <script src="jquery.js"></script>
+    <script src="bootstrap-4.1.3/js/bootstrap.bundle.js"></script>
+    <script src="bootstrap-4.1.3/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>膠囊導航選項卡</h2>
+        <!-- 在ul中添加.nav和.nav-pills，.nav-pills類三來設置膠囊導航 -->
+        <ul class="nav nav-pills">
+            <!-- 在li中添加.nav-itm，在a中添加.nav-link，對於選中的選項添加.active類-->
+            <!--添加data-toggle="pill"屬性類别，是去掉a標籤的默認行為，實現動態切換導航的active屬性效果-->
+            <!--給每個a標籤的href屬性添加屬性值，用於绑定下面選項卡面板中對應的元素，當導航切換時，顯示應對的内容-->
+            <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#tab1">圖片1</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#tab2">圖片2</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#tab3">圖片3</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#tab4">圖片4</a></li>
+        </ul>
+        <!-- 選項面板-->
+        <!-- 選項面板中tab-content類和.tab-pane類別 與data-toggle="pill"一同使用，設置標籤頁對應的內容隨膠囊導航的切換而更改-->
+        <div class="tab-content">
+            <!-- .active類用來設置膠囊導航默認情下啟動的選項所對應的元素-->
+            <div id="tab1" class="tab-pane active">
+                <img src="images/01.png" alt="景色1" class="img-fluid">
+            </div>
+            <div id="tab2" class="tab-pane fade">
+                <img src="images/02.png" alt="景色2" class="img-fluid">
+            </div>
+            <div id="tab3" class="tab-pane fade">
+                <img src="images/03.png" alt="景色3" class="img-fluid">
+            </div>
+            <div id="tab4" class="tab-pane fade">
+                <img src="images/04.png" alt="景色4" class="img-fluid">
+            </div>
+
+        </div>
+</body>
+</html>

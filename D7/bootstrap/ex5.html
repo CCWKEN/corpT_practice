@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>膠囊式頁面</title>
+    <link rel="stylesheet" href="bootstrap-4.1.3/css/bootstrap.css">
+    <script src="jquery.js"></script>
+    <script src="bootstrap-4.1.3/js/bootstrap.bundle.js"></script>
+    <script src="bootstrap-4.1.3/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <p align="center">膠囊導航</p>
+        <!--在ul中添加.nav和.nav-pills, .nav-pills類用來設置膠囊導航-->
+        <ul class="nav nav-pills">
+            <!--在li中添加.nav-item，在a中添加.nav-link，對於選中的選項添加.active類-->
+            <!--添加data-toggle="pill"屬性類別，是去掉a標籤的默認行為,實現動態切換導航的active屬性效果-->
+            <li class="nav-item"><a class="nav-link active" href="#" data-toggle="pill">健康</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill">時尚</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill">減肥</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill">美食</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill">交友</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-toggle="pill">社區</a></li>
+        </ul>
+    </div>
+</body>
+</html>
